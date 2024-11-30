@@ -29,8 +29,7 @@ loja1.adicionarProduto({codigo: 1, nome: "Celular"});
 loja1.adicionarProduto({codigo: 2, nome: "Notebook"})
 loja1.adicionarProduto({codigo: 3, nome: "Tablet"})
 
-const BuscarProduto = loja1.BuscarProduto(1);
-
+const BuscarProduto = loja1.BuscarProduto(1)
 
 if (BuscarProduto) {
   console.log(`Produto encontrado: ${BuscarProduto.nome}`);
