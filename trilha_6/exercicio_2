@@ -1,0 +1,32 @@
+class EmailNotification {
+    sendEmail(user: { name: string, email: string }): void {
+        console.log(`Enviando ${user.email}:`);
+        console.log(`Oi ${user.name}, cadastro feito`);
+    }
+}
+class UserManager {
+    private users: { name: string, email: string }[] = [];
+    private emailNotification: EmailNotification;
+
+    constructor(emailNotification: EmailNotification) {
+        this.emailNotification = emailNotification;
+    }
+
+    createUser(name: string, email: string): void {
+        const user = { name, email };
+        this.users.push(user);
+        console.log(`User ${name} criado`);
+
+        this.emailNotification.sendEmail(user);
+    }
+
+    getUsers(): { name: string, email: string }[] {
+        return this.users;
+    }
+}
+const emailNotification = new EmailNotification();
+const userManager = new UserManager(emailNotification);
+
+userManager.createUser("teste1", "a@a.com");
+userManager.createUser("teste2", "b@b.com");
+console.log("Users com cadastro", userManager.getUsers());
